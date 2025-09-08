@@ -15,13 +15,13 @@
 
 /* header */
 .header {
-  /* position: relative; */
   display: grid;
   min-block-size: 668px;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr min-content 1fr;
-  width: 100%;
-  min-height: 100vh;
+  width: 100%; 
+  height: 100vh;
+  min-height: 768px;
   padding: 20px;
   margin-block-end: 60px;
 }
@@ -42,24 +42,24 @@
   line-height: 100%;
   padding: 1.5px 13px 1.5px 13px;
   text-transform: lowercase;
-  color: var(--accent-color, #FF0070);
+  color: var(--title-color, #FF0070);
   background: transparent;
   border: 1px solid transparent;
   cursor: pointer;
 }
 
 .header__theme-menu-button:hover {
-  border: solid 1px var(--accent-color, #FF0070);
+  border: solid 1px var(--accent-border-color, rgb(255 0 112 / 0.4));
 }
 
 .header__theme-menu-button:focus {
-  border-bottom: 1px solid var(--accent-color, #FF0070);
+  border-bottom: 1px solid var(--border-color, #FF0070);
   outline: none;
 }
 
 .header__theme-menu-button_active {
+  border: 1px solid var(--border-color, #FF0070);
   cursor: default;
-  border-color: currentColor;
   pointer-events: none;
 }
 
@@ -69,21 +69,21 @@
   align-self: center;
   justify-self: end;
   background-color: var(--accent-color, #FF0070);
-  color: var(--сolor-headlines, #000);
+  color: var(--сolor-headlines, #000028);
   font-weight: bold;
   max-width: 50%;
   font-size: 18px;
-  top: 10px;
 }
 
 .header__title {
   font-weight: 700;
   align-self: center;
   font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  line-height: 82.5%;
+  line-height: 100%;
   text-shadow: 4px 4px 0 var(--accent-color, #FF0070);
-  color: var(--h-text, #DB00FF);
+  color: var(--header-text, #DB00FF);
   margin: -2%;
+  max-width: 100%;
 }
 
 /* decoration */
@@ -98,7 +98,7 @@
   content: "REC";
   text-transform: uppercase;
   text-align: center;
-  color: var(--accent-color, #FF0070);
+  color: var(--point-color);
   font-weight: 400;
   line-height: 25px;
   font-size: 18px;
@@ -112,34 +112,33 @@
   top: 8px;
   right: 10px;
   border-radius: 60%;
-  box-shadow: 0 0 4px 2px var(--accent-color, #FF0070);
-  background-color: var(--accent-color, #FF0070);
+  box-shadow: var(--point-box-shadow);
+  background-color: var(--point-color);
   min-height: 9px;
   min-width: 9px;
 }
 
-.header.decorated-zone::after {
+.decorated-zone::after {
   content: "";
   position: absolute;
   width: 25px;
   height: 25px;
   top: 20px;
   right: 20px;
-  border-inline-end: 1px solid var(--accent-color, #FF0070);
-  border-block-start: 1px solid var(--accent-color, #FF0070);
+  border-inline-end: 1px solid var(--corner-color, #FF0070);
+  border-block-start: 1px solid var(--corner-color, #FF0070);
 }
 
-header.decorated-zone::before {
+.decorated-zone::before {
   content: "";
   position: absolute;
   bottom: 19px;
   width: 25px;
   height: 26px;
   left: 20px;
-  border-inline-start: 1px solid var(--accent-color, #FF0070);
-  border-block-end: 1px solid var(--accent-color, #FF0070);
+  border-inline-start: 1px solid var(--corner-color, #FF0070);
+  border-block-end: 1px solid var(--corner-color, #FF0070);
 } 
-
 
 /* main*/
 .main {
@@ -156,18 +155,18 @@ header.decorated-zone::before {
 
 .content__title_title {
   background-color: var(--accent-color, #FF0070);
-  color: var(--сolor-headlines, #000);
+  color: var(--сolor-headlines, #000028);
   font-weight: bold;
   font-family: var(--font-family, "IBM Plex mono", sans-serif);
   font-size: 18px;
 }
 
-h4.content__title_title {
+.subtitle {
   font-weight: 400;
 }
 
 .content__title {
-  color: var(--accent-color, #FF0070);
+  color: var(--title-color, #FF0070);
   font-size: 18px;
   grid-column: 1;
   grid-row: 1;
@@ -186,8 +185,25 @@ h4.content__title_title {
 
 .text_link {
   text-decoration: none;
-  text-shadow: 3px 2px 0 var(--accent-color, #FF0070);
+  text-shadow: 2px 2px 0 var(--accent-color, #FF0070);
 }
+
+.item {
+  display: grid;
+  gap: 10px;
+}
+
+.fokus__container, .concentrate__container, .gold_fish__container, .image__content {
+  display: grid;
+  gap: 20px;
+}
+
+.concentrate, .gold_fish, .image__content {
+  margin-top: 80px;
+}
+
+/*В макете не указаны параметры тени на ссылках, если
+я вновь указал не так, прошу прописать какие именно параметры*/
 
 .text_link:hover {
   border-bottom: 1px solid var(--text-color, #F1B2CE);
@@ -197,55 +213,19 @@ h4.content__title_title {
   outline: 1px solid currentColor;
 }
 
-/* fokus__container*/
-.fokus__container .fokus__item {
-  display: grid;
-  gap: 10px;
-}
-
-.fokus__container {
-  display: grid;
-  gap: 20px;
-}
-
 /* concentrate__container*/
+
 .concentrate {
-  gap: 20px;
-  margin-top: 80px;
-  display: grid;
   grid-template-columns: auto;
 }
 
 .concentrate__container {
-  display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
   align-items: start;
 }
 
 .concentrate .content__title {
   max-width: 315px;
-}
-
-.concentrate__item {
-  display: grid;
-  gap: 10px;
-}
-
-/* gold_fish__container*/
-.gold_fish {
-  margin-top: 80px;
-  display: grid;
-}
-
-.gold_fish__container .gold_fish__item {
-  display: grid;
-  gap: 10px;
-}
-
-.gold_fish__container {
-  display: grid;
-  gap: 20px;
 }
 
 /* pictires*/
@@ -255,19 +235,6 @@ h4.content__title_title {
   grid-template-columns: repeat(auto-fit, 1fr);
   grid-template-rows: auto;
   gap: 20px;
-}
-
-.image__content {
-  display: grid;
-  gap: 20px;
-  margin-top: 80px;
-}
-
-.title_have_pictures {
-  background-color: var(--accent-color, #FF0070);
-  color: var(--сolor-headlines, #000);
-  background-size: cover;
-  font-size: 18px;
 }
 
 .section__image {
@@ -309,7 +276,8 @@ h4.content__title_title {
   display: grid;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 768px;
   margin-top: 60px;
 }
 
@@ -319,33 +287,11 @@ h4.content__title_title {
   line-height: 82.5%;
   font-family: var(--font-family, "IBM Plex mono", sans-serif);
   text-shadow: 2px 2px 0 var(--accent-color, #FF0070);
-  color: var(--h-text, #DB00FF);
+  color: var(--header-text, #DB00FF);
 }
 
 .decorated-zone {
   position: relative;
-}
-
-.footer.decorated-zone::after {
-  content: "";
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  top: 21px;
-  right: 20px;
-  border-inline-end: 1px solid var(--accent-color, #FF0070);
-  border-block-start: 1px solid var(--accent-color, #FF0070);
-}
-
-.footer.decorated-zone::before {
-  content: "";
-  position: absolute;
-  bottom: 19px;
-  width: 25px;
-  height: 25px;
-  left: 20px;
-  border-inline-start: 1px solid var(--accent-color, #FF0070);
-  border-block-end: 1px solid var(--accent-color, #FF0070);
 }
 
 /* media*/
@@ -357,6 +303,7 @@ h4.content__title_title {
     padding: 10px;
     block-size: max(100vh, 668px);
     margin-block-end: 30px;
+    min-height: 668px;
   }
   
   .header__text_title {
@@ -369,16 +316,7 @@ h4.content__title_title {
   .header__title {
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
     margin: 0;
-  }
-
-  .header__theme-menu {
-    align-self: center;
-    justify-self: end;
-  }
-
-  .header__theme-menu-list {
-    flex-direction: column;
-    gap: 14px ;
+    line-height: 82.5%;
   }
 
   .fokus.content_section, .gold_fish.content_section {
@@ -403,7 +341,7 @@ h4.content__title_title {
   }
 
   .concentrate, .gold_fish, .image__content {
-    margin-top: 50px;
+    margin-top: 49px;
   }
 
   .image__content, .have_pictures{
@@ -413,7 +351,7 @@ h4.content__title_title {
   .decoration::before {
     right: 19px;
     top: -10px;
-}
+  }
 
   .decoration::after {
     top: 0px;
@@ -445,10 +383,26 @@ h4.content__title_title {
     block-size: max(100vh, 668px);
     padding: 10px 20px;
     margin-top: 30px;
+    min-height: 668px;
     }
 
   .footer__title {
     font-size: 116px;
+  }
+}
+
+/*общий media запрос */
+
+@media (max-width: 1023px){
+   .header__theme-menu {
+    align-self: center;
+    justify-self: end;
+    min-height: 98px;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: column;
+    gap: 13px ;
   }
 }
 
@@ -457,19 +411,12 @@ h4.content__title_title {
 @media (min-width: 768px) and (max-width: 1023px) {
   .header__theme-menu {
     position: relative;
-    justify-self: end;
-    align-self: center;
-    top: -12px;
+    padding-bottom: 12px;
     }
-
-  .header__theme-menu-list {
-    flex-direction: column;
-    gap: 13px ;
-  }
 
   .header__text_title {
     max-width: 364px;
-    top: 10px;
+    margin-top: 10px;
   }
   .fokus .content__title {
     max-width: 236px;
@@ -509,7 +456,32 @@ h4.content__title_title {
     bottom: 20px;
     left: 20px;
   }
+
+  .header, .footer {
+    min-height: 1024px;
+  }
 }
+
+@media (prefers-color-scheme: light) {
+
+  :root {
+    --bg-image: url(../images/cover-image-light.png);
+    --accent-color: #ff8dcb;
+    --header-text: #ffc2e6;
+    --text-color: #353430;
+    --bg-color: #fff1f7;
+    --сolor-headlines: #353430;
+    --corner-color: var(--сolor-headlines);
+    --title-color: #353430;
+    --border-color: #353430;
+    --accent-border-color: rgb(50 49 45 / 0.5);
+    --point-color: transparent;
+    --point-box-shadow: none;
+  }
+}
+
+
+
 
 
 

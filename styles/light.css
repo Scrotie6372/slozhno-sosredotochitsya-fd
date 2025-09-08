@@ -7,48 +7,18 @@
 :root.theme-light {
   --bg-image: url(../images/cover-image-light.png);
   --accent-color: #ff8dcb;
-  --h-text: #ffc2e6;
+  --header-text: #ffc2e6;
   --text-color: #353430;
   --bg-color: #fff1f7;
   --сolor-headlines: #353430;
+  --corner-color: var(--сolor-headlines);
+  --title-color: #353430;
+  --border-color: #353430;
+  --accent-border-color: rgb(50 49 45 / 0.5);
+  --point-color: transparent;
+  --point-box-shadow: none;
 }
 
-:root.theme-light .decoration::before {
-  color: transparent;
-}
 
-:root.theme-light .decoration::after {
-  background-color: transparent;
-  box-shadow: none;
-}
 
-:root.theme-light .header__theme-menu-button:hover {
-  border: 1px solid rgb(53 52 48 / 0.5);
-}
 
-/* Style_light */
-
-@media (prefers-color-scheme: light) {
-
-  :root.theme-light {
-    --bg-image: url(../images/cover-image-light.png);
-    --accent-color: #ff8dcb;
-    --h-text: #ffc2e6;
-    --text-color: #353430;
-    --bg-color: #fff1f7;
-    --сolor-headlines: #353430;
-  }
-
-  :root.theme-light .decoration::before {
-    color: transparent;
-  }
-
-  :root.theme-light .decoration::after {
-    background-color: transparent;
-    box-shadow: none;
-  }
-
-  :root.theme-light .header__theme-menu-button:hover {
-    border: 1px solid rgb(53 52 48 / 0.5);
-  }
-}
