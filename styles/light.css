@@ -19,6 +19,24 @@
   --point-box-shadow: none;
 }
 
+@media (prefers-color-scheme: light) {
+
+  :root {
+    --bg-image: url(../images/cover-image-light.png);
+    --accent-color: #ff8dcb;
+    --header-text: #ffc2e6;
+    --text-color: #353430;
+    --bg-color: #fff1f7;
+    --сolor-headlines: #353430;
+    --corner-color: var(--сolor-headlines);
+    --title-color: #353430;
+    --border-color: #353430;
+    --accent-border-color: rgb(50 49 45 / 0.5);
+    --point-color: transparent;
+    --point-box-shadow: none;
+  }
+}
+
 
 
 
